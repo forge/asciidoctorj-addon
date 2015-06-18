@@ -59,7 +59,7 @@ public class AsciidocFileResourceTest
    public void testReadStructuredDocument() throws Exception
    {
       File tmpFile = File.createTempFile("document", ".adoc");
-      Files.write(tmpFile.toPath(), "Title\n=====\nHello World!".getBytes());
+      Files.write(tmpFile.toPath(), "==Title\nHello World!".getBytes());
       tmpFile.deleteOnExit();
       AsciidocFileResource resource = resourceFactory.create(AsciidocFileResource.class, tmpFile);
       StructuredDocument document = resource.getStructuredDocument();
