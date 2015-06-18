@@ -55,7 +55,7 @@ class AsciidocFileResourceImpl extends AbstractFileResource<AsciidocFileResource
    @Override
    public StructuredDocument getStructuredDocument(Map<String, Object> options)
    {
-      return asciidoctor.readDocumentStructure(getUnderlyingResourceObject(), options);
+      return getAsciidoctor().readDocumentStructure(getUnderlyingResourceObject(), options);
    }
 
    @Override
@@ -63,6 +63,11 @@ class AsciidocFileResourceImpl extends AbstractFileResource<AsciidocFileResource
    {
       Options options = new Options();
       options.setToFile(false);
-      return asciidoctor.convertFile(getUnderlyingResourceObject(), options);
+      return getAsciidoctor().convertFile(getUnderlyingResourceObject(), options);
+   }
+
+   private Asciidoctor getAsciidoctor()
+   {
+      return asciidoctor;
    }
 }
