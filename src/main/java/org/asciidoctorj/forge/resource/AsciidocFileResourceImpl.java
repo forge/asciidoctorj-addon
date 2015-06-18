@@ -14,7 +14,7 @@ import java.util.Map;
 
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.Options;
-import org.asciidoctor.ast.StructuredDocument;
+import org.asciidoctor.ast.Document;
 import org.jboss.forge.addon.resource.AbstractFileResource;
 import org.jboss.forge.addon.resource.Resource;
 import org.jboss.forge.addon.resource.ResourceFactory;
@@ -47,15 +47,15 @@ class AsciidocFileResourceImpl extends AbstractFileResource<AsciidocFileResource
    }
 
    @Override
-   public StructuredDocument getStructuredDocument()
+   public Document getDocument()
    {
-      return getStructuredDocument(Collections.<String, Object> emptyMap());
+      return getDocument(Collections.<String, Object> emptyMap());
    }
 
    @Override
-   public StructuredDocument getStructuredDocument(Map<String, Object> options)
+   public Document getDocument(Map<String, Object> options)
    {
-      return getAsciidoctor().readDocumentStructure(getUnderlyingResourceObject(), options);
+      return getAsciidoctor().loadFile(getUnderlyingResourceObject(), options);
    }
 
    @Override

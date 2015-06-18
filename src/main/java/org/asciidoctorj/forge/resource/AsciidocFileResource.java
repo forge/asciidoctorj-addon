@@ -9,7 +9,7 @@ package org.asciidoctorj.forge.resource;
 
 import java.util.Map;
 
-import org.asciidoctor.ast.StructuredDocument;
+import org.asciidoctor.ast.Document;
 import org.jboss.forge.addon.resource.FileResource;
 
 /**
@@ -25,7 +25,7 @@ public interface AsciidocFileResource extends FileResource<AsciidocFileResource>
     * 
     * @return structured document.
     */
-   StructuredDocument getStructuredDocument();
+   Document getDocument();
 
    /**
     * Reads and creates structured document containing header and content chunks. By default it dig only one level down
@@ -34,7 +34,7 @@ public interface AsciidocFileResource extends FileResource<AsciidocFileResource>
     * @param options a Hash of options to control processing (default: {}).
     * @return structured document.
     */
-   StructuredDocument getStructuredDocument(Map<String, Object> options);
+   Document getDocument(Map<String, Object> options);
 
    /**
     * Renders the Asciidoc file to HTML

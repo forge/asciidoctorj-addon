@@ -14,7 +14,7 @@ import java.nio.file.Files;
 
 import javax.inject.Inject;
 
-import org.asciidoctor.ast.StructuredDocument;
+import org.asciidoctor.ast.Document;
 import org.asciidoctorj.forge.resource.AsciidocFileResource;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -62,9 +62,9 @@ public class AsciidocFileResourceTest
       Files.write(tmpFile.toPath(), "==Title\nHello World!".getBytes());
       tmpFile.deleteOnExit();
       AsciidocFileResource resource = resourceFactory.create(AsciidocFileResource.class, tmpFile);
-      StructuredDocument document = resource.getStructuredDocument();
+      Document document = resource.getDocument();
       Assert.assertNotNull(document);
-      Assert.assertEquals(1, document.getParts().size());
+      Assert.assertEquals(1, document.blocks().size());
    }
 
    @Test

@@ -40,8 +40,9 @@ Allows easy manipulation of asciidoc data
 @Inject private ResourceFactory factory;
 ...
 AsciidocFileResource resource = factory.createResource(AsciidocFileResource.class, new File("document.adoc"));
-StructuredDocument document = resource.getStructuredDocument(Collections.<String, Object> emptyMap());
-ContentPart style_two = document.getPartByStyle("style two");
+Document document = resource.getDocument();
+Section section = (Section) document.blocks().get(1);
+// More info in https://github.com/asciidoctor/asciidoctorj#jruby-wrapping-classes
 ...
 ----
 +
