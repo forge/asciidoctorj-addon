@@ -9,7 +9,7 @@
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <version.forge>2.16.3-SNAPSHOT</version.forge>
+      <version.forge>2.16.2.Final</version.forge>
       <version.furnace>2.18.2.Final</version.furnace>
       <version.asciidoctorj>1.5.2</version.asciidoctorj>
    </properties>
