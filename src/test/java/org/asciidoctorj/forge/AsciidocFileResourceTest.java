@@ -59,11 +59,23 @@ public class AsciidocFileResourceTest
    public void testReadStructuredDocument() throws Exception
    {
       File tmpFile = File.createTempFile("document", ".adoc");
-      Files.write(tmpFile.toPath(), "==Title\nHello World!".getBytes());
+      Files.write(tmpFile.toPath(), "Title\n=====\nHello World!".getBytes());
       tmpFile.deleteOnExit();
       AsciidocFileResource resource = resourceFactory.create(AsciidocFileResource.class, tmpFile);
       StructuredDocument document = resource.getStructuredDocument();
       Assert.assertNotNull(document);
       Assert.assertEquals(1, document.getParts().size());
    }
+
+   @Test
+   public void testConvertToHTML() throws Exception
+   {
+      File tmpFile = File.createTempFile("document", ".adoc");
+      Files.write(tmpFile.toPath(), "Writing AsciiDoc is _easy_!".getBytes());
+      tmpFile.deleteOnExit();
+      AsciidocFileResource resource = resourceFactory.create(AsciidocFileResource.class, tmpFile);
+      String html = resource.toHTML();
+      Assert.assertEquals("<div class=\"paragraph\">\n<p>Writing AsciiDoc is <em>easy</em>!</p>\n</div>", html);
+   }
+
 }

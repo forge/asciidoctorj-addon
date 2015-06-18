@@ -9,7 +9,6 @@ package org.asciidoctorj.forge.resource;
 
 import java.util.Map;
 
-import org.asciidoctor.ast.Document;
 import org.asciidoctor.ast.StructuredDocument;
 import org.jboss.forge.addon.resource.FileResource;
 
@@ -37,6 +36,11 @@ public interface AsciidocFileResource extends FileResource<AsciidocFileResource>
     */
    StructuredDocument getStructuredDocument(Map<String, Object> options);
 
-   Document getDocument(Map<String, Object> options);
+   /**
+    * Renders the Asciidoc file to HTML
+    * 
+    * @return the HTML version of this Asciidoc file
+    */
+   String toHTML();
 
 }

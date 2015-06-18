@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.ast.Document;
+import org.asciidoctor.Options;
 import org.asciidoctor.ast.StructuredDocument;
 import org.jboss.forge.addon.resource.AbstractFileResource;
 import org.jboss.forge.addon.resource.Resource;
@@ -59,8 +59,10 @@ class AsciidocFileResourceImpl extends AbstractFileResource<AsciidocFileResource
    }
 
    @Override
-   public Document getDocument(Map<String, Object> options)
+   public String toHTML()
    {
-      return asciidoctor.loadFile(getUnderlyingResourceObject(), options);
+      Options options = new Options();
+      options.setToFile(false);
+      return asciidoctor.convertFile(getUnderlyingResourceObject(), options);
    }
 }
