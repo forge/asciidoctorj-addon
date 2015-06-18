@@ -1,5 +1,8 @@
 == asciidoctorj-addon
 :idprefix: id_ 
+
+image:https://travis-ci.org/forge/asciidoctorj-addon.svg?branch=master["Build Status", link="https://travis-ci.org/forge/asciidoctorj-addon"]
+
 This addon provides *standalone* functionality, and *exports services* for use in other addons. 
         
 === Depends on
